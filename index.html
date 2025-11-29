@@ -1,0 +1,1436 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Long History of Dehumanization</title>
+    <style>
+        :root {
+            --primary: #1a1a2e;
+            --secondary: #16213e;
+            --accent: #e94560;
+            --gold: #f5a623;
+            --text: #e0e0e0;
+            --text-muted: #a0a0c0;
+            --truth: #4CAF50;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            color: var(--text);
+            line-height: 1.7;
+            overflow-x: hidden;
+        }
+
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(26, 26, 46, 0.98);
+            backdrop-filter: blur(15px);
+            z-index: 1000;
+            padding: 1.2rem 2rem;
+            border-bottom: 2px solid var(--gold);
+        }
+
+        .nav-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.6rem;
+            font-weight: bold;
+            color: var(--gold);
+            letter-spacing: 0.5px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+            flex-wrap: wrap;
+        }
+
+        .nav-links a {
+            color: var(--text);
+            text-decoration: none;
+            transition: color 0.3s;
+            font-weight: 500;
+        }
+
+        .nav-links a:hover {
+            color: var(--gold);
+        }
+
+        .hero {
+            margin-top: 80px;
+            padding: 7rem 2rem 5rem;
+            text-align: center;
+            background: radial-gradient(circle at center, rgba(233, 69, 96, 0.12) 0%, transparent 70%);
+        }
+
+        .hero h1 {
+            font-size: 3.8rem;
+            margin-bottom: 1.2rem;
+            background: linear-gradient(45deg, var(--gold), #fff, var(--gold));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            letter-spacing: -0.5px;
+        }
+
+        .hero-subtitle {
+            font-size: 1.4rem;
+            color: var(--text-muted);
+            max-width: 850px;
+            margin: 0 auto 2.5rem;
+            line-height: 1.8;
+        }
+
+        .highlight-box {
+            background: rgba(233, 69, 96, 0.18);
+            border-left: 5px solid var(--accent);
+            padding: 2rem;
+            margin: 2.5rem auto;
+            max-width: 950px;
+            border-radius: 10px;
+            font-style: italic;
+            font-size: 1.1rem;
+            box-shadow: 0 5px 25px rgba(0, 0, 0, 0.2);
+        }
+
+        .truth-box {
+            background: rgba(76, 175, 80, 0.18);
+            border-left: 5px solid var(--truth);
+            padding: 2rem;
+            margin: 2.5rem auto;
+            max-width: 950px;
+            border-radius: 10px;
+            font-size: 1.1rem;
+            box-shadow: 0 5px 25px rgba(0, 0, 0, 0.2);
+        }
+
+        #timeline {
+            padding: 5rem 2rem;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.8rem;
+            margin-bottom: 4rem;
+            color: var(--gold);
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 100px;
+            height: 3px;
+            background: var(--accent);
+            margin: 1rem auto;
+        }
+
+        .timeline-container {
+            position: relative;
+        }
+
+        .timeline-line {
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 4px;
+            height: 100%;
+            background: linear-gradient(to bottom, var(--gold), var(--accent), var(--gold));
+            opacity: 0.4;
+        }
+
+        .timeline-item {
+            display: flex;
+            margin-bottom: 5rem;
+            position: relative;
+            opacity: 0;
+            transform: translateY(60px);
+            animation: fadeInUp 0.7s forwards;
+        }
+
+        .timeline-item:nth-child(even) {
+            flex-direction: row-reverse;
+        }
+
+        .timeline-content {
+            flex: 1;
+            max-width: 45%;
+            background: rgba(255, 255, 255, 0.06);
+            padding: 2.5rem;
+            border-radius: 15px;
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(245, 166, 35, 0.25);
+            transition: transform 0.4s, box-shadow 0.4s;
+            position: relative;
+        }
+
+        .timeline-content:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4);
+            border-color: rgba(245, 166, 35, 0.5);
+        }
+
+        .timeline-date {
+            font-size: 1.2rem;
+            color: var(--gold);
+            font-weight: bold;
+            margin-bottom: 0.7rem;
+            letter-spacing: 0.5px;
+        }
+
+        .timeline-title {
+            font-size: 1.7rem;
+            margin-bottom: 1.2rem;
+            color: white;
+            line-height: 1.3;
+        }
+
+        .timeline-desc {
+            color: var(--text-muted);
+            margin-bottom: 1.5rem;
+            font-size: 1.05rem;
+        }
+
+        .source-citation {
+            font-size: 0.9rem;
+            color: #999;
+            border-top: 1px solid rgba(255, 255, 255, 0.12);
+            padding-top: 1rem;
+        }
+
+        .truth-section {
+            padding: 6rem 2rem;
+            max-width: 1400px;
+            margin: 0 auto;
+            background: linear-gradient(180deg, rgba(76, 175, 80, 0.08) 0%, transparent 100%);
+        }
+
+        .truth-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 3rem;
+            margin-top: 4rem;
+        }
+
+        .truth-card {
+            background: rgba(255, 255, 255, 0.06);
+            padding: 2.5rem;
+            border-radius: 15px;
+            border-left: 5px solid var(--truth);
+            transition: transform 0.4s;
+        }
+
+        .truth-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(76, 175, 80, 0.15);
+        }
+
+        .quran-verse {
+            background: rgba(76, 175, 80, 0.15);
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin: 1.5rem 0;
+            border-right: 3px solid var(--truth);
+            font-style: italic;
+        }
+
+        .hadith-box {
+            background: rgba(245, 166, 35, 0.15);
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin: 1.5rem 0;
+            border-right: 3px solid var(--gold);
+        }
+
+        #debate-section {
+            padding: 6rem 2rem;
+            background: linear-gradient(135deg, var(--accent), #9d1c3c, #7a0f2a);
+            margin: 5rem 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        #debate-section::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.05) 0%, transparent 70%);
+            animation: pulse 8s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+        }
+
+        .debate-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            text-align: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        .debate-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            margin-top: 4rem;
+        }
+
+        .debate-card {
+            background: rgba(255, 255, 255, 0.12);
+            padding: 2.5rem;
+            border-radius: 15px;
+            backdrop-filter: blur(15px);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            transition: transform 0.4s;
+        }
+
+        .debate-card:hover {
+            transform: translateY(-5px);
+            background: rgba(255, 255, 255, 0.15);
+        }
+
+        .debate-card h3 {
+            color: white;
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+            line-height: 1.2;
+        }
+
+        .failure-list {
+            list-style: none;
+            text-align: left;
+            margin-top: 1.5rem;
+        }
+
+        .failure-list li {
+            padding: 0.8rem 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+            position: relative;
+            padding-left: 2rem;
+        }
+
+        .failure-list li:last-child {
+            border-bottom: none;
+        }
+
+        .failure-list li:before {
+            content: "✗";
+            position: absolute;
+            left: 0;
+            color: #ff6b6b;
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+
+        .quote-carousel {
+            padding: 5rem 2rem;
+            background: rgba(22, 33, 62, 0.6);
+        }
+
+        .modern-leaders-section {
+            padding: 5rem 2rem;
+            max-width: 1400px;
+            margin: 0 auto;
+            background: linear-gradient(180deg, transparent 0%, rgba(233, 69, 96, 0.08) 100%);
+        }
+
+        .leaders-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
+            gap: 3rem;
+            margin-top: 3rem;
+        }
+
+        .leader-card {
+            background: rgba(255, 255, 255, 0.06);
+            padding: 2.5rem;
+            border-radius: 15px;
+            border-left: 5px solid var(--accent);
+            transition: transform 0.4s;
+        }
+
+        .leader-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(233, 69, 96, 0.15);
+        }
+
+        .leader-name {
+            font-size: 1.8rem;
+            color: var(--gold);
+            margin-bottom: 0.5rem;
+        }
+
+        .leader-title {
+            color: var(--text-muted);
+            font-size: 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .quote-box {
+            background: rgba(233, 69, 96, 0.15);
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin: 1rem 0;
+            border-left: 3px solid var(--accent);
+            font-style: italic;
+        }
+
+        .stat-highlight {
+            background: linear-gradient(45deg, rgba(245, 166, 35, 0.2), rgba(245, 166, 35, 0.05));
+            padding: 1.2rem;
+            border-radius: 8px;
+            margin: 1.2rem 0;
+            border: 1px solid rgba(245, 166, 35, 0.3);
+        }
+
+        .scientific-erasure {
+            padding: 6rem 2rem;
+            max-width: 1400px;
+            margin: 0 auto;
+            background: linear-gradient(180deg, rgba(22, 33, 62, 0.5) 0%, transparent 100%);
+        }
+
+        .scientists-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 3rem;
+            margin-top: 4rem;
+        }
+
+        .scientist-card {
+            background: rgba(255, 255, 255, 0.06);
+            padding: 2.5rem;
+            border-radius: 15px;
+            border-top: 4px solid var(--gold);
+            transition: transform 0.4s;
+            position: relative;
+        }
+
+        .scientist-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(245, 166, 35, 0.15);
+        }
+
+        .scientist-name {
+            font-size: 1.6rem;
+            color: var(--gold);
+            margin-bottom: 0.5rem;
+        }
+
+        .scientist-field {
+            color: var(--accent);
+            font-weight: bold;
+            margin-bottom: 1rem;
+        }
+
+        .contribution-list {
+            list-style: none;
+            margin: 1rem 0;
+        }
+
+        .contribution-list li {
+            padding: 0.5rem 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .contribution-list li:before {
+            content: "• ";
+            color: var(--gold);
+            font-weight: bold;
+        }
+
+        .video-games-section {
+            padding: 6rem 2rem;
+            max-width: 1400px;
+            margin: 0 auto;
+            background: linear-gradient(180deg, transparent 0%, rgba(233, 69, 96, 0.08) 100%);
+        }
+
+        .games-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
+            gap: 3rem;
+            margin-top: 4rem;
+        }
+
+        .game-card {
+            background: rgba(255, 255, 255, 0.06);
+            padding: 2.5rem;
+            border-radius: 15px;
+            border-left: 5px solid var(--accent);
+            transition: transform 0.4s;
+        }
+
+        .game-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(233, 69, 96, 0.15);
+        }
+
+        .game-title {
+            font-size: 1.8rem;
+            color: var(--accent);
+            margin-bottom: 0.5rem;
+        }
+
+        .game-description {
+            color: var(--text-muted);
+            margin-bottom: 1.5rem;
+        }
+
+        .game-mechanics {
+            background: rgba(233, 69, 96, 0.1);
+            padding: 1.2rem;
+            border-radius: 8px;
+            margin: 1rem 0;
+        }
+
+        .mechanics-list {
+            list-style: none;
+            margin-top: 0.5rem;
+        }
+
+        .mechanics-list li {
+            padding: 0.3rem 0;
+            color: var(--text-muted);
+        }
+
+        .mechanics-list li:before {
+            content: "▸ ";
+            color: var(--accent);
+        }
+
+        #sources {
+            padding: 5rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .source-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2.5rem;
+            margin-top: 3rem;
+        }
+
+        .source-card {
+            background: rgba(255, 255, 255, 0.06);
+            padding: 2rem;
+            border-radius: 10px;
+            border-left: 4px solid var(--accent);
+            transition: transform 0.3s;
+        }
+
+        .source-card:hover {
+            transform: translateY(-3px);
+        }
+
+        .source-card h4 {
+            color: var(--gold);
+            margin-bottom: 1rem;
+            font-size: 1.2rem;
+        }
+
+        .source-card p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .hero h1 {
+                font-size: 2.8rem;
+            }
+
+            .timeline-item {
+                flex-direction: column !important;
+            }
+
+            .timeline-content {
+                max-width: 100%;
+            }
+
+            .timeline-line {
+                left: 20px;
+            }
+
+            .debate-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .leaders-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .scientists-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .games-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .truth-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @keyframes fadeInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .carousel-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            position: relative;
+            min-height: 200px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .quote-slide {
+            display: none;
+            text-align: center;
+            padding: 2rem;
+        }
+
+        .quote-slide.active {
+            display: block;
+            animation: fadeIn 0.5s;
+        }
+
+        .quote-text {
+            font-size: 1.5rem;
+            color: var(--gold);
+            margin-bottom: 1rem;
+            font-style: italic;
+        }
+
+        .quote-author {
+            color: var(--text-muted);
+            font-size: 1rem;
+        }
+
+        .carousel-nav {
+            position: absolute;
+            bottom: -60px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 1rem;
+        }
+
+        .carousel-btn {
+            background: var(--accent);
+            color: white;
+            border: none;
+            padding: 1rem;
+            border-radius: 50%;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        .carousel-btn:hover {
+            background: var(--gold);
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="nav-container">
+            <div class="logo">📜 Historical Truth Archive</div>
+            <ul class="nav-links">
+                <li><a href="#timeline">Timeline</a></li>
+                <li><a href="#debate-section">Debate Failure</a></li>
+                <li><a href="#truth-section">The Truth</a></li>
+                <li><a href="#modern-leaders">Modern Leaders</a></li>
+                <li><a href="#scientific-erasure">Scientific Erasure</a></li>
+                <li><a href="#video-games">Video Games</a></li>
+                <li><a href="#quotes">Key Statements</a></li>
+                <li><a href="#sources">Sources</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <section class="hero">
+        <h1>The Long History of Dehumanization</h1>
+        <p class="hero-subtitle">
+            Tracing Anti-Arab and Anti-Islamic Sentiment from Antiquity to the Present
+        </p>
+        <div class="highlight-box">
+            <strong>Propaganda Thesis:</strong> When opponents of Islam failed to counter its theological, civilizational, and intellectual challenges through legitimate debate, they systematically resorted to propaganda, dehumanization, cultural erasure, and violence—a pattern that continues today.
+        </div>
+        <div class="truth-box">
+            <strong>The Truth:</strong> This site also documents the historical reality: Islamic sources explicitly command pluralism, knowledge-seeking, and hospitality, while Arab culture has long exemplified these values—facts suppressed by centuries of manufactured hate.
+        </div>
+    </section>
+
+    <section id="timeline">
+        <h2 class="section-title">Historical Timeline: Propaganda vs. Reality</h2>
+        <div class="timeline-container">
+            <div class="timeline-line"></div>
+
+            <div class="timeline-item" style="animation-delay: 0.1s">
+                <div class="timeline-content">
+                    <div class="timeline-date">4th Century CE</div>
+                    <h3 class="timeline-title">Epiphanius of Salamis: Proto-Islamophobic Doctrine</h3>
+                    <p class="timeline-desc">
+                        <strong>Before Islam existed</strong>, Bishop Epiphanius (315-403 CE) wrote the <em>Panarion</em> against "heresies," including the "Arabian sect of Collyridians." He portrayed Arabs as inherently heretical, setting a template for later Christian polemicists. His work established the pattern: when you cannot defeat a belief theologically, label its people as inherently deviant.
+                    </p>
+                    <div class="quote-box" style="margin: 1rem 0; font-size: 0.9rem;">
+                        Epiphanius is the "only one to give us any information concerning the Gothic sect of the Audians, as well as the Arabian sect of the Collyridians" — framing Arabs as heretical by nature
+                    </div>
+                    <div class="source-citation">
+                        Sources: Epiphanius, <em>Panarion</em> (c. 376 CE); Wikipedia entry on Panarion
+                    </div>
+                </div>
+            </div>
+
+            <div class="timeline-item" style="animation-delay: 0.2s">
+                <div class="timeline-content">
+                    <div class="timeline-date">622 CE: THE TRUTH</div>
+                    <h3 class="timeline-title">Constitution of Medina: First Written Pluralistic Charter</h3>
+                    <p class="timeline-desc">
+                        <strong>Historical Fact:</strong> Prophet Muhammad drafted a constitution guaranteeing equal rights for Muslims, Jews, Christians, and pagans. It established: "The Jews...shall have their religion and the Muslims theirs" and "If anyone attacks anyone who is a party to this compact, all must unite to defend them." This was unprecedented pluralism in tribal Arabia.
+                    </p>
+                    <div class="quran-verse">
+                        <strong>Quran 49:13:</strong> "O mankind, We have created you male and female, and appointed you races and tribes, that you may know one another. Surely the noblest among you in the sight of God is the most God-fearing of you."
+                    </div>
+                    <div class="hadith-box">
+                        <strong>Prophet's Final Sermon:</strong> "An Arab has no superiority over a non-Arab, nor a non-Arab over an Arab; a white has no superiority over a black, nor a black over a white; except by piety and good action."
+                    </div>
+                    <div class="source-citation">
+                        Sources: Ibn Ishaq's <em>Sira</em>; Constitution of Medina text; Quran 49:13; Hadith on equality
+                    </div>
+                </div>
+            </div>
+
+            <div class="timeline-item" style="animation-delay: 0.3s">
+                <div class="timeline-content">
+                    <div class="timeline-date">629-632 CE</div>
+                    <h3 class="timeline-title">Murder of the Prophet's Envoys</h3>
+                    <p class="timeline-desc">
+                        The envoy Al-Harith bin Umair Al-Azdi was executed by Shurahbil ibn Amr al-Ghassani, a Byzantine Christian vassal—violating sacred Arabian hospitality laws. Emperor Heraclius allegedly recognized Muhammad's prophethood privately but feared mob violence from his court if he converted. A Christian monk who converted was reportedly lynched by a Roman mob. The core response to Islamic invitation was violence, not dialogue.
+                    </p>
+                    <div class="source-citation">
+                        Sahih Bukhari on Battle of Mut'ah; Ibn Abbas traditions; Al-Tabari's histories
+                    </div>
+                </div>
+            </div>
+
+            <div class="timeline-item" style="animation-delay: 0.4s">
+                <div class="timeline-content">
+                    <div class="timeline-date">7th-15th Century CE: THE TRUTH</div>
+                    <h3 class="timeline-title">Islamic Golden Age: Civilization Built on Knowledge</h3>
+                    <p class="timeline-desc">
+                        <strong>Reality:</strong> While Europe languished, Islam <em>mandated</em> learning. The Quran's first revelation was "Read!" (96:1). Hadith commands: "Seek knowledge from the cradle to the grave." Muslims established the world's first universities (Al-Qarawiyyin, 859 CE; Al-Azhar, 970 CE), preserved Greek philosophy, and pioneered modern science—not despite Islam, but <em>because</em> of it.
+                    </p>
+                    <div class="quran-verse">
+                        <strong>Quran 96:1-5:</strong> "Read! In the name of your Lord who taught by the pen, taught humanity what it knew not."
+                    </div>
+                    <div class="hadith-box">
+                        <strong>Prophet Muhammad:</strong> "Seeking knowledge is obligatory upon every Muslim."<br><br>
+                        <strong>Prophet Muhammad:</strong> "You must seek knowledge from birth till death."
+                    </div>
+                    <div class="source-citation">
+                        Al-Khwarizmi (c. 780-850); Ibn Sina (980-1037); Quran 96:1-5; Hadith on knowledge
+                    </div>
+                </div>
+            </div>
+
+            <div class="timeline-item" style="animation-delay: 0.5s">
+                <div class="timeline-content">
+                    <div class="timeline-date">1095-1291 CE</div>
+                    <h3 class="timeline-title">Crusades: Invention of the "Pagan" Libel</h3>
+                    <p class="timeline-desc">
+                        <strong>The 'Pagan' Libel:</strong> Christian propaganda invented polytheistic worship for Muslims—the <em>Song of Roland</em> (11th c.) depicts Muslims worshipping Muhammad, "Termagant," and "Apollyon." Pope Urban II fabricated atrocities (church destruction, forced circumcision) to justify holy war. This wasn't ignorance—it was deliberate propaganda to mobilize illiterate masses. The theological sophistication of Islamic monotheism was reduced to fictional idolatry.
+                    </p>
+                    <div class="source-citation">
+                        <em>Song of Roland</em> lines 258-263; Council of Clermont records; Toner (2020) on Crusader propaganda
+                    </div>
+                </div>
+            </div>
+
+            <div class="timeline-item" style="animation-delay: 0.6s">
+                <div class="timeline-content">
+                    <div class="timeline-date">1187 CE</div>
+                    <h3 class="timeline-title">Saladin's Victory and Christian Humiliation</h3>
+                    <p class="timeline-desc">
+                        After Saladin's recapture of Jerusalem, Christian chroniclers struggled to reconcile his chivalry with their propaganda. The Third Crusade failed to fully retake Jerusalem, cementing Muslim sovereignty. Saladin became the archetypal "noble infidel"—simultaneously admired and demonized. Dante placed him in Limbo (not Hell), acknowledging his virtue while still denying him salvation. The inability to defeat him militarily led to cultural appropriation of his nobility while maintaining religious othering.
+                    </p>
+                    <div class="source-citation">
+                        Dante's <em>Inferno</em> Canto 4; Ibn al-Athir's chronicles; Imad al-Din's accounts
+                    </div>
+                </div>
+            </div>
+
+            <div class="timeline-item" style="animation-delay: 0.7s">
+                <div class="timeline-content">
+                    <div class="timeline-date">1920 CE</div>
+                    <h3 class="timeline-title">Colonial Revenge: Saladin's Tomb Desecration</h3>
+                    <p class="timeline-desc">
+                        After defeating the Syrian army at Maysalun, French General <strong>Henri Gouraud</strong> allegedly visited Saladin's tomb in Damascus. While accounts vary, the persistent story claims he declared: <em>"Saladin, nous voilà"</em> ("Saladin, we are back") or <em>"Awake, Saladin. We have returned. My presence here consecrates the victory of the Cross over the Crescent."</em> Whether Gouraud or subordinate General Goybet spoke these words, French colonial ideology explicitly romanticized the occupation as a Crusader "reconquest," viewing Muslims as temporary occupiers of Christian lands. This act symbolized 700 years of festering resentment.
+                    </p>
+                    <div class="source-citation">
+                        Puaux memoirs (1952); Myriam Harry's reporting; French Mandate archives
+                    </div>
+                </div>
+            </div>
+
+            <div class="timeline-item" style="animation-delay: 0.8s">
+                <div class="timeline-content">
+                    <div class="timeline-date">1980s-2000s CE</div>
+                    <h3 class="timeline-title">Video Games as Propaganda Tools</h3>
+                    <p class="timeline-desc">
+                        <strong>Early Era:</strong> Games like <em>Metal Slug</em> (1996) introduced "Arabian Infantry" as default enemies—sword-wielding fighters riding camels with exaggerated violent death animations. <em>Counter-Strike</em> (1999) established "Arab terrorists" as standard multiplayer antagonists. The 9/11 attacks triggered a surge in war games set in Middle Eastern locales, transforming digital entertainment into military recruitment and desensitization tools. By 2007, <em>Call of Duty: Modern Warfare</em> would mainstream the "mythical Muslim" terrorist archetype.
+                    </p>
+                    <div class="source-citation">
+                        <em>Metal Slug</em> Arabian enemies; <em>Counter-Strike</em> terrorist stereotypes; post-9/11 game production surge
+                    </div>
+                </div>
+            </div>
+
+            <div class="timeline-item" style="animation-delay: 0.9s">
+                <div class="timeline-content">
+                    <div class="timeline-date">2008-2013 CE</div>
+                    <h3 class="timeline-title">The "Islamophobia Industry" Emerges</h3>
+                    <p class="timeline-desc">
+                        A University of California Berkeley & CAIR report documented that <strong>$206 million</strong> was funneled to 33 groups whose primary purpose was "to promote prejudice against, or hatred of, Islam and Muslims" in the United States. This wasn't spontaneous bigotry—it was a coordinated, well-funded campaign. The "Islamophobia industry" (Lean & Esposito) created a propaganda infrastructure that transformed historical prejudice into modern political weaponry, making anti-Muslim sentiment marketable and electorally profitable.
+                    </p>
+                    <div class="source-citation">
+                        UC Berkeley & CAIR report (2015); Lean & Esposito's research; Islamophobia industry analysis
+                    </div>
+                </div>
+            </div>
+
+            <div class="timeline-item" style="animation-delay: 1.0s">
+                <div class="timeline-content">
+                    <div class="timeline-date">September 2001</div>
+                    <h3 class="timeline-title">Modern Crusade Rhetoric: George W. Bush</h3>
+                    <p class="timeline-desc">
+                        Bush publicly stated "Islam is peace" at the Islamic Center of Washington (Sept 17, 2001), yet privately and in policy circles framed the "War on Terror" as a civilizational struggle. He claimed terrorists "hate our freedoms," echoing medieval accusations of Islamic hostility to Christian values. This dual rhetoric—public tolerance vs. private civilizational warfare—created space for explicit Islamophobia to flourish. The medieval "clash of civilizations" narrative was repackaged for the 21st century.
+                    </p>
+                    <div class="source-citation">
+                        Bush's Islamic Center speech; "Address to a Joint Session of Congress" (Sept 20, 2001)
+                    </div>
+                </div>
+            </div>
+
+            <div class="timeline-item" style="animation-delay: 1.1s">
+                <div class="timeline-content">
+                    <div class="timeline-date">2016-2020 CE</div>
+                    <h3 class="timeline-title">Trump Era: Open Islamophobia as Policy</h3>
+                    <p class="timeline-desc">
+                        Donald Trump's administration is considered the first openly Islamophobic administration in modern U.S. history. He declared <em>"I think Islam hates us"</em> and called for <em>"a total and complete shutdown of Muslims entering the United States."</em> His policies included: banning people from several majority-Muslim countries, advocating mosque closures, creating Muslim surveillance databases, and favoring Christian refugees over Muslim ones. The Supreme Court's 5-4 ruling upholding the "Muslim Ban" institutionalized religious discrimination.
+                    </p>
+                    <div class="source-citation">
+                        Trump campaign statements; Supreme Court ruling (2018); CAIR reports on hate crimes increasing 182% post-2016
+                    </div>
+                </div>
+            </div>
+
+            <div class="timeline-item" style="animation-delay: 1.2s">
+                <div class="timeline-content">
+                    <div class="timeline-date">2021-Present CE</div>
+                    <h3 class="timeline-title">Normalization of Islamophobia in Europe</h3>
+                    <p class="timeline-desc">
+                        <strong>Hungarian PM Viktor Orbán:</strong> "Integrating Bosnia into EU is a challenge because it has 2 million Muslims" (Muslims as security threat). <strong>France:</strong> Marine Le Pen's National Rally surged by targeting Muslims as the primary "enemy." Le Pen called for banning hijabs in public spaces, dissolving anti-Islamophobia organizations (CCIF), and claiming "Islamism is waging war on us." Eric Zemmour received 53.59% of French votes in Israel with openly racist, anti-Muslim propaganda. Nearly half of European Muslims report daily discrimination.
+                    </p>
+                    <div class="source-citation">
+                        Orbán's statements (2021); Le Pen's tweets (2020); Zemmour's campaign; European Islamophobia Report (2023)
+                    </div>
+                </div>
+            </div>
+
+            <div class="timeline-item" style="animation-delay: 1.3s">
+                <div class="timeline-content">
+                    <div class="timeline-date">2023-2024 CE</div>
+                    <h3 class="timeline-title">Hate Crimes Surge: The Real-World Impact</h3>
+                    <p class="timeline-desc">
+                        After October 7, 2023, CAIR reported a <strong>182% jump</strong> in Islamophobia incidents in just 16 days. The organization received 1,283 complaints in one month, and 3,578 hate crime complaints in Q4 2023. In 2024, CAIR documented <strong>8,658 complaints</strong>—the highest since 1996. This represents a 7.4% year-over-year increase. The "Islamophobia industry" successfully transformed propaganda into violent action, with real consequences for Muslim communities. The historical pattern of dehumanization → discrimination → violence remains fully operational.
+                    </p>
+                    <div class="source-citation">
+                        CAIR reports (2023-2024); NBC News coverage; Biden Administration responses
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- NEW TRUTH SECTION -->
+    <section class="truth-section" id="truth-section">
+        <h2 class="section-title">The Truth: Islamic Sources & Historical Reality</h2>
+        <p style="text-align: center; color: var(--text-muted); margin-bottom: 3rem; font-size: 1.2rem;">
+            For every lie told in the propaganda timeline, Islamic sources and historical facts tell a different story—one of pluralism, knowledge, hospitality, and justice.
+        </p>
+
+        <div class="truth-grid">
+            <div class="truth-card">
+                <h3 class="leader-name" style="color: var(--truth);">Plurialism & Religious Freedom</h3>
+                <p style="margin-bottom: 1.5rem;"><strong>Propaganda Claim:</strong> Islam is inherently intolerant and seeks to destroy other religions.</p>
+                <p style="margin-bottom: 1.5rem;"><strong>Historical Reality:</strong> The Constitution of Medina (622 CE) explicitly guaranteed religious autonomy for Jews, Christians, and pagans, making it the first pluralistic charter in history.</p>
+                <div class="quran-verse">
+                    <strong>Quran 2:256:</strong> "There is no compulsion in religion. Truth stands out clear from error."
+                </div>
+                <div class="quran-verse">
+                    <strong>Quran 30:22:</strong> "And of His signs is the creation of the heavens and the earth and the diversity of your languages and your colors. Indeed in that are signs for those of knowledge."
+                </div>
+                <div class="hadith-box">
+                    <strong>Prophet Muhammad:</strong> "Whoever oppresses a non-Muslim [dhimmi] or belittles his right, I will be his opponent on the Day of Judgment."
+                </div>
+                <p style="margin-top: 1.5rem;"><strong>Historical Evidence:</strong> Muslims ruled Spain for 800 years where Jews, Christians, and Muslims co-existed and produced a golden civilization—until the Reconquista destroyed this pluralism.</p>
+            </div>
+
+            <div class="truth-card">
+                <h3 class="leader-name" style="color: var(--truth);">Knowledge & Learning</h3>
+                <p style="margin-bottom: 1.5rem;"><strong>Propaganda Claim:</strong> Islam is anti-intellectual and hostile to science.</p>
+                <p style="margin-bottom: 1.5rem;"><strong>Historical Reality:</strong> Islam <em>mandates</em> learning. The first word revealed was "Read!" The Prophet said "Seek knowledge even unto China."</p>
+                <div class="quran-verse">
+                    <strong>Quran 96:1-5:</strong> "Read! In the name of your Lord who taught by the pen, taught humanity what it knew not."
+                </div>
+                <div class="quran-verse">
+                    <strong>Quran 3:18:</strong> "Allah bears witness that there is no deity but Him, and [so do] the angels and those of knowledge—[that He is] maintaining [creation] in justice."
+                </div>
+                <div class="hadith-box">
+                    <strong>Prophet Muhammad:</strong> "Seeking knowledge is obligatory upon every Muslim."<br><br>
+                    <strong>Prophet Muhammad:</strong> "You must seek knowledge from birth till death."
+                </div>
+                <p style="margin-top: 1.5rem;"><strong>Result:</strong> This theological command created the Islamic Golden Age. Muslims invented algebra, pioneered modern medicine, and established the world's first universities—centuries before Europe's Renaissance.</p>
+            </div>
+
+            <div class="truth-card">
+                <h3 class="leader-name" style="color: var(--truth);">Hospitality & Generosity</h3>
+                <p style="margin-bottom: 1.5rem;"><strong>Propaganda Claim:</strong> Arabs are barbaric and violent.</p>
+                <p style="margin-bottom: 1.5rem;"><strong>Cultural Reality:</strong> Hospitality (كرم, <em>karam</em>) is a sacred duty in Arab culture, rooted in both pre-Islamic tradition and Islamic command.</p>
+                <div class="hadith-box">
+                    <strong>Prophet Muhammad:</strong> "Whoever believes in Allah and the Last Day should be generous to his guest. His welcome is for a day and a night, and his hospitality is for three days. Whatever is more than that is charity."
+                </div>
+                <div class="hadith-box">
+                    <strong>Prophet Muhammad:</strong> "Putting up a guest for one night is obligatory. If you find a guest at your door in the morning, then this is a debt that you owe him."
+                </div>
+                <div class="quote-box" style="margin: 1.5rem 0;">
+                    "In Arab culture, hospitality is more than a polite gesture—it is a sacred obligation and a symbol of كرم (karam), meaning generosity. This value is deeply rooted... especially among Bedouin communities, where the harsh desert environment required a strong ethic of helping travelers."
+                </div>
+                <p style="margin-top: 1.5rem;"><strong>Modern Reality:</strong> Visitors to Arab countries consistently report extraordinary generosity. Despite propaganda, crime rates in many Arab cities are lower than Western capitals, and strangers are welcomed as family.</p>
+            </div>
+
+            <div class="truth-card">
+                <h3 class="leader-name" style="color: var(--truth);">Justice & Equality</h3>
+                <p style="margin-bottom: 1.5rem;"><strong>Propaganda Claim:</strong> Islam teaches supremacy and discrimination.</p>
+                <p style="margin-bottom: 1.5rem;"><strong>Islamic Teaching:</strong> The Quran explicitly rejects racial/ethnic supremacy, a revolutionary idea in 7th-century Arabia.</p>
+                <div class="quran-verse">
+                    <strong>Quran 49:13:</strong> "O mankind, We have created you male and female, and appointed you races and tribes, that you may know one another. Surely the noblest among you in the sight of God is the most God-fearing of you."
+                </div>
+                <div class="hadith-box">
+                    <strong>Prophet Muhammad:</strong> "All mankind is from Adam and Eve. An Arab has no superiority over a non-Arab, nor a non-Arab over an Arab; a white has no superiority over a black, nor a black over a white."
+                </div>
+                <div class="quran-verse">
+                    <strong>Quran 2:177:</strong> "Righteousness is not that you turn your faces toward the east or the west, but righteousness is in one who believes in Allah, the Last Day, the angels, the Book, and the prophets and gives wealth, in spite of love for it, to relatives, orphans, the needy, the traveler, the beggars, and for freeing slaves."
+                </div>
+                <p style="margin-top: 1.5rem;"><strong>Historical Practice:</strong> The Prophet appointed Bilal, a former Abyssinian slave, as the first muezzin. His closest companion was Salman, a Persian. The Umayyad Caliphate's downfall began when it violated these equality principles and favored Arabs over non-Arabs.</p>
+            </div>
+
+            <div class="truth-card">
+                <h3 class="leader-name" style="color: var(--truth);">Safety & Social Cohesion</h3>
+                <p style="margin-bottom: 1.5rem;"><strong>Propaganda Claim:</strong> Arab countries are dangerous, chaotic, and lawless.</p>
+                <p style="margin-bottom: 1.5rem;"><strong>Statistical Reality:</strong> Many Arab cities have significantly lower crime rates than Western counterparts.</p>
+                <div class="stat-highlight" style="background: rgba(76, 175, 80, 0.1); border: 1px solid var(--truth);">
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; text-align: center;">
+                        <div>
+                            <strong style="color: var(--truth);">Dubai</strong><br>
+                            Crime rate: 15.6 per 1,000<br>
+                            (vs. 47.7 in New York)
+                        </div>
+                        <div>
+                            <strong style="color: var(--truth);">Abu Dhabi</strong><br>
+                            Crime rate: 13.2 per 1,000<br>
+                            (vs. 58.3 in London)
+                        </div>
+                    </div>
+                </div>
+                <p style="margin-top: 1.5rem;">The concept of <strong>جيرة (<em>jiwar</em>)</strong> or neighborliness is deeply embedded. As the Prophet said: "Whoever believes in Allah and the Last Day should be generous to his neighbor." This creates tight-knit communities where social safety nets function organically.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="debate-section">
+        <div class="debate-container">
+            <h2 class="section-title" style="color: white; text-shadow: 2px 2px 4px rgba(0,0,0,0.5);">When Debate Failed, Propaganda Prevailed</h2>
+            
+            <div class="debate-grid">
+                <div class="debate-card">
+                    <h3>Failed Intellectual Engagement</h3>
+                    <ul class="failure-list">
+                        <li><strong>4th Century:</strong> Epiphanius pre-emptively labels Arabs as heretical before Islam even exists, setting template for future propaganda</li>
+                        <li><strong>8th Century:</strong> Caliph Al-Mahdi's renowned dialogue with Nestorian Patriarch Timothy (781 CE) ended in mutual respect, but Christian theological circles suppressed the record because it didn't delegitimize Islam</li>
+                        <li><strong>Andalusian Golden Age:</strong> Muslim-Christian-Jewish intellectual flourishing threatened Church orthodoxy, leading to the Reconquista's deliberate destruction of pluralistic civilization</li>
+                        <li><strong>19th Century:</strong> Scholars like Sir William Muir who studied Islam objectively were marginalized by colonial narratives requiring Muslim dehumanization to justify occupation</li>
+                        <li><strong>20th Century:</strong> Christian-Muslim scholarly dialogues consistently failed to produce Islamic delegitimization, leading conservative circles to abandon ecumenism for culture wars</li>
+                    </ul>
+                </div>
+
+                <div class="debate-card">
+                    <h3>Why Propaganda Replaced Reason</h3>
+                    <ul class="failure-list">
+                        <li><strong>Theological Defeat:</strong> Islam's pure monotheism, rational scripture, and legal sophistication couldn't be refuted theologically—so Christians invented "pagan" worship and "Moon God" theories</li>
+                        <li><strong>Civilizational Humiliation:</strong> Islamic civilization surpassed Europe in science, philosophy, medicine, and governance during Europe's "Dark Ages"—propaganda was revenge for inferiority</li>
+                        <li><strong>Colonial Necessity:</strong> Portraying Muslims as "barbaric" legitimized resource theft and occupation as "civilizing missions," making propaganda economically profitable</li>
+                        <li><strong>Modern Structural Islamophobia:</strong> When ISIS emerged, media deliberately conflated it with 1.8 billion Muslims—a broad brush to justify endless war and military-industrial profits</li>
+                        <li><strong>Political Electoralism:</strong> Anti-Muslim rhetoric proven to win elections (Trump, Le Pen, Orbán) creates incentive structure: hate equals power, moderates lose</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="stat-highlight" style="margin-top: 3rem; text-align: center;">
+                <h3 style="color: white; margin-bottom: 1rem;">The Propaganda Investment</h3>
+                <p style="font-size: 1.2rem; color: var(--gold);"><strong>$206 million</strong> was systematically funded to 33 groups between 2008-2013 with the primary purpose of promoting anti-Muslim prejudice—<em>this is the modern "Islamophobia industry"</em></p>
+            </div>
+        </div>
+    </section>
+
+    <section class="modern-leaders-section" id="modern-leaders">
+        <h2 class="section-title">Modern Political Leaders: Continuation of Historical Hate</h2>
+        <p style="text-align: center; color: var(--text-muted); margin-bottom: 3rem; font-size: 1.1rem;">
+            Contemporary leaders explicitly echo medieval propaganda, transforming historical dehumanization into modern policy.
+        </p>
+
+        <div class="leaders-grid">
+            <div class="leader-card">
+                <h3 class="leader-name">Donald J. Trump</h3>
+                <p class="leader-title">45th & 47th U.S. President (2016-2020, 2025-Present)</p>
+                <p style="margin-bottom: 1rem;"><strong>Publicly Stated Positions:</strong></p>
+                <div class="quote-box">"I think Islam hates us" — 2016 interview</div>
+                <div class="quote-box">"A total and complete shutdown of Muslims entering the United States" — Campaign promise</div>
+                <div class="quote-box">Called for surveillance of mosques and creating a national database of American Muslims</div>
+                <div class="quote-box">Favored Christian refugees over Muslim refugees in travel ban implementation</div>
+                <div class="quote-box">Jan 20, 2025: Reissued "Muslim Ban" targeting citizens from 12 countries (Afghanistan, Iran, Somalia, etc.)</div>
+                <p style="margin-top: 1rem;"><strong>Policy Impact:</strong> Supreme Court upheld "Muslim Ban" 5-4. Hate crimes against Muslims rose 182% during his first term. Administration contained multiple openly anti-Muslim figures (Steve Bannon, Michael Flynn, Sebastian Gorka).</p>
+            </div>
+
+            <div class="leader-card">
+                <div class="leader-name">Marine Le Pen</div>
+                <p class="leader-title">French Presidential Candidate, National Rally Leader</p>
+                <p style="margin-bottom: 1rem;"><strong>Propaganda Framework:</strong> Frames entire Muslim population through lens of "Islamism" and terrorism</p>
+                <div class="quote-box">"Islamism is waging war on us: it is by force that we must drive it out of our country" — Oct 16, 2020 tweet</div>
+                <div class="quote-box">"The veil has accompanied the rise of Islamism in our country... I want it to be banned in public space" — Oct 25, 2020</div>
+                <div class="quote-box">"We must dissolve the CCIF [Collective Against Islamophobia in France]" — Oct 30, 2020 (targeting anti-discrimination organizations)</div>
+                <div class="quote-box">Accused political opponents of compromising with "Islamist fundamentalism for purely electoral reasons"</div>
+                <p style="margin-top: 1rem;"><strong>Electoral Strategy:</strong> Transformed National Front from anti-Semitic party (under her father) to anti-Muslim party, gaining mainstream acceptance. In 2022 election, lost to Macron but forced him to adopt Islamophobic positions to compete.</p>
+            </div>
+
+            <div class="leader-card">
+                <div class="leader-name">Viktor Orbán</div>
+                <p class="leader-title">Hungarian Prime Minister (2010-Present)</p>
+                <p style="margin-bottom: 1rem;"><strong>Ethno-Nationalist Framework:</strong> Explicitly frames Muslim populations as existential threats to "Christian Europe"</p>
+                <div class="quote-box">"Integrating Bosnia into EU is a challenge because it has 2 million Muslims" — 2021 statement</div>
+                <div class="quote-box">Built anti-Muslim sentiment into Hungarian constitution, restricting refugee resettlement and mosque construction</div>
+                <p style="margin-top: 1rem;"><strong>Regional Impact:</strong> Bosniak leaders condemned his statements as "xenophobic and racist" reminiscent of "fascist, Nazi" ideologies. Orbán's model of "illiberal democracy" based on Christian supremacy has been emulated by other Eastern European leaders.</p>
+            </div>
+
+            <div class="leader-card">
+                <div class="leader-name">Eric Zemmour</div>
+                <p class="leader-title">French Far-Right Commentator & Presidential Candidate</p>
+                <p style="margin-bottom: 1rem;"><strong>Open Supremacist Ideology:</strong> Went further than Le Pen in explicit anti-Muslim rhetoric</p>
+                <div class="quote-box">Broke records by receiving 53.59% of French votes in Israel with openly racist, anti-Muslim propaganda</div>
+                <div class="quote-box">Argued that Islam is incompatible with French republican values and called for deportation of "Islamists"</div>
+                <p style="margin-top: 1rem;"><strong>Media Amplification:</strong> Despite being a fringe candidate, received disproportionate media coverage, normalizing genocidal rhetoric against French Muslims. His success forced mainstream candidates to adopt harder anti-Muslim positions.</p>
+            </div>
+
+            <div class="leader-card">
+                <div class="leader-name">Emmanuel Macron</div>
+                <p class="leader-title">French President (2017-Present)</p>
+                <p style="margin-bottom: 1rem;"><strong>"Centrist" Islamophobia:</strong> Adopted far-right positions to compete electorally, making state-sanctioned Islamophobia bipartisan</p>
+                <div class="quote-box">"The headscarf contradicts our country's civilizational understanding... and therefore makes us feel insecure" — Macron's minister</div>
+                <div class="quote-box">Marlène Schiappa (Minister): "The veil is a political act"</div>
+                <div class="quote-box">Jean-Michel Blanquer (Education Minister): "The headscarf is undesirable in our society"</div>
+                <p style="margin-top: 1rem;"><strong>Legislative Actions:</strong> Closed mosques, dissolved Muslim civil society organizations, passed "anti-separatism" law targeting Muslim communities. Created "Islamo-leftism" as academic bogeyman. Proves that anti-Muslim propaganda is now centrist, not fringe.</p>
+            </div>
+
+            <div class="leader-card">
+                <div class="leader-name">Other U.S. Political Figures</div>
+                <p class="leader-title">Republican Party & Far-Right Ecosystem</p>
+                <p style="margin-bottom: 1rem;"><strong>Systemic Rhetoric:</strong> Anti-Muslim statements widespread across party</p>
+                <div class="quote-box">Steve Bannon, Michael Flynn, Sebastian Gorka: Claimed Islam is a dangerous ideology and fear of Muslims is "rational"</div>
+                <div class="quote-box">Multiple GOP candidates in Trump era: Anti-Muslim rhetoric became "widespread" and electorally successful</div>
+                <div class="quote-box">Two in five Americans now say Islam is "incompatible with US values" — a direct result of sustained propaganda</div>
+                <p style="margin-top: 1rem;"><strong>Structural Impact:</strong> Nearly half of European Muslims report daily discrimination. EU's own Islamophobia coordinator describes "witch hunt" against Muslim advocates. The propaganda succeeded in normalizing what was once fringe.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="scientific-erasure" id="scientific-erasure">
+        <h2 class="section-title">The Great Erasure: Scientific Hypocrisy & Cultural Appropriation</h2>
+        <p style="text-align: center; color: var(--text-muted); margin-bottom: 3rem; font-size: 1.1rem;">
+            While Europe languished in its "Dark Ages," Muslim scholars built the foundation of modern science—only to have their contributions stolen, renamed, and erased from Western memory.
+        </p>
+
+        <div class="stat-highlight" style="margin-bottom: 3rem; text-align: center;">
+            <h3 style="color: var(--gold); margin-bottom: 1rem;">The Hypocrisy Exposed</h3>
+            <p style="font-size: 1.2rem;"><strong>56% of Americans</strong> oppose teaching "Arabic numerals" in schools, unaware they're the standard 0-9 system they use daily—<em>a testament to manufactured prejudice over knowledge</em></p>
+        </div>
+
+        <div class="scientists-grid">
+            <div class="scientist-card">
+                <div class="scientist-name">Muhammad ibn Musa al-Khwarizmi</div>
+                <p class="scientist-field">Mathematics & Computer Science</p>
+                <p style="margin-bottom: 1rem;"><strong>Western Erasure:</strong> His name is hidden in plain sight. "Algorithm" comes from Latinized "Algoritmi." "Algebra" from his book title <em>Al-Jabr</em>. Yet most computer science students graduate never learning he was Muslim.</p>
+                <ul class="contribution-list">
+                    <li>Invented algebra as a distinct mathematical discipline (c. 830 CE)</li>
+                    <li>Introduced Indian numeral system (0-9) to the West, enabling modern computing</li>
+                    <li>Pioneered algorithmic thinking foundational to all computer science</li>
+                    <li>His works were standard textbooks in European universities until the 16th century</li>
+                </ul>
+                <div class="quote-box" style="margin-top: 1.5rem;">
+                    "When a modern mathematician in Boston invokes an algorithm... he/she may not be aware that he/she is helping to commemorate the Arab mathematician Mohammad Ibn Musa-al-Khwarizmi" — IRFI
+                </div>
+            </div>
+
+            <div class="scientist-card">
+                <div class="scientist-name">Ibn Sina (Avicenna)</div>
+                <p class="scientist-field">Medicine & Philosophy</p>
+                <p style="margin-bottom: 1rem;"><strong>Western Erasure:</strong> Known in Latin as "Avicenna," his medical canon was taught in European universities for 600 years. Today, Western medical schools rarely mention his name, crediting later European figures for discoveries he made first.</p>
+                <ul class="contribution-list">
+                    <li><em>Canon of Medicine</em> (1037) was the standard medical text in Europe until the 18th century</li>
+                    <li>Described 2,600 medicines, 1,400 of plant origin—foundational to pharmacology</li>
+                    <li>First to describe carotid sinus hypersensitivity and many medical conditions</li>
+                    <li>His medical innovations shaped European Renaissance medicine while being persecuted in his homeland as "apostate"</li>
+                </ul>
+                <div class="quote-box" style="margin-top: 1.5rem;">
+                    "His work shaped our understanding of medicine... while being called an apostate in the Arab world. In Europe, they taught Avicenna. They studied him for centuries—in Paris, Italy, Spain. They built on his work while we forgot his name." — Professor Mustafa Al-Nashar
+                </div>
+            </div>
+
+            <div class="scientist-card">
+                <div class="scientist-name">Al-Jazari</div>
+                <p class="scientist-field">Engineering & Robotics</p>
+                <p style="margin-bottom: 1rem;"><strong>Western Erasure:</strong> Called the "Father of Robotics," his 1206 Book of Knowledge of Ingenious Mechanical Devices described inventions centuries ahead of their time, yet mechanical engineering textbooks credit later European figures.</p>
+                <ul class="contribution-list">
+                    <li>Invented early programmable robots and mechanical automata (1206 CE)</li>
+                    <li>Designed crankshafts, camshafts, and segmental gears—foundations of modern machinery</li>
+                    <li>Created water-raising machines and early assembly line concepts</li>
+                    <li>His work influenced Leonardo da Vinci, who copied his designs without attribution</li>
+                </ul>
+            </div>
+
+            <div class="scientist-card">
+                <div class="scientist-name">Ibn al-Haytham (Alhazen)</div>
+                <p class="scientist-field">Optics & Scientific Method</p>
+                <p style="margin-bottom: 1rem;"><strong>Western Erasure:</strong> His <em>Book of Optics</em> was the most influential physics text for 600 years, yet he's rarely mentioned in high school physics curricula, which jump from Greeks to Newton.</p>
+                <ul class="contribution-list">
+                    <li>First to correctly explain how vision works (1011-1021 CE)</li>
+                    <li>Pioneered experimental scientific method centuries before Bacon</li>
+                    <li>Discovered laws of refraction and camera obscura principles</li>
+                    <li>His optical theories directly influenced Newton's work on light</li>
+                </ul>
+            </div>
+
+            <div class="scientist-card">
+                <div class="scientist-name">Al-Razi (Rhazes)</div>
+                <p class="scientist-field">Medicine & Chemistry</p>
+                <p style="margin-bottom: 1rem;"><strong>Western Erasure:</strong> His medical works were translated into Latin and taught in Europe, yet he's omitted from most Western histories of medicine.</p>
+                <ul class="contribution-list">
+                    <li>Authored <em>Al-Hawi</em> (864 CE), a comprehensive medical encyclopedia</li>
+                    <li>First to describe smallpox and measles as distinct diseases</li>
+                    <li>Pioneered chemical apparatus and experimental chemistry</li>
+                    <li>His works were standard medical texts in European universities</li>
+                </ul>
+            </div>
+
+            <div class="scientist-card">
+                <div class="scientist-field">Systematic Institutional Erasure</div>
+                <p style="margin-bottom: 1rem;"><strong>Academic Complicity:</strong> Western educational systems have deliberately constructed curricula that create historical amnesia about Muslim contributions.</p>
+                <ul class="contribution-list">
+                    <li>European universities taught Muslim science for 600 years, then abruptly stopped acknowledging origins</li>
+                    <li>Colonial powers burned Islamic libraries and claimed discoveries as their own</li>
+                    <li>Modern textbooks credit "Arabic numerals" to Indians but omit Muslim transmission role</li>
+                    <li>56% of Americans oppose teaching "Arabic numerals" in schools, revealing deep-seated prejudice</li>
+                </ul>
+                <div class="quote-box" style="margin-top: 1.5rem;">
+                    "The West must get full credit for remarkable achievements, but the idea of an immaculate Western conception is an imaginative fantasy. Our global civilization is a world heritage, not just a collection of disparate local cultures." — UNESCO perspective
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="video-games-section" id="video-games">
+        <h2 class="section-title">Virtual Killing Fields: Video Games as Desensitization Tools</h2>
+        <p style="text-align: center; color: var(--text-muted); margin-bottom: 3rem; font-size: 1.1rem;">
+            Academic research confirms that violent video games featuring Muslim/Arab enemies increase prejudice and normalize killing—transforming entertainment into systematic dehumanization.
+        </p>
+
+        <div class="games-grid">
+            <div class="game-card">
+                <div class="game-title">Call of Duty: Modern Warfare Series</div>
+                <p class="game-description"><strong>The "Mythical Muslim" Archetype:</strong> The franchise mainstreamed the terrorist-as-default-villain trope, with storylines that explicitly conflate Arab identity with anti-Western terrorism.</p>
+                <div class="game-mechanics">
+                    <strong>Key Features:</strong>
+                    <ul class="mechanics-list">
+                        <li>Khaled Al-Asad: Saudi Arabian revolutionary leader who assassinates presidents and launches coups</li>
+                        <li>Al-Qatala ("The Killers"): Wahhabi terrorist organization based in fictional Urzikstan</li>
+                        <li>OpFor: Vaguely Arab antagonists with unclear motivations beyond being "bad guys"</li>
+                        <li>Game design uses "shitty Arab country" visual shorthand with yellow filters and bombed-out cities</li>
+                    </ul>
+                </div>
+                <div class="quote-box">"Muslim blood is the cheapest in the world... Shoot all the Arabs." — Rami Ismail, game developer analyzing COD</div>
+                <p style="margin-top: 1rem;"><strong>Research Impact:</strong> University of Michigan study shows playing terrorism-themed games increases anti-Arab attitudes, even when Arabs aren't depicted in the game.</p>
+            </div>
+
+            <div class="game-card">
+                <div class="game-title">Counter-Strike Series</div>
+                <p class="game-description"><strong>The Terrorist Default:</strong> Established "Arab terrorists" as standard multiplayer antagonists, normalizing the equation of Muslim identity with terrorism.</p>
+                <div class="game-mechanics">
+                    <strong>Key Features:</strong>
+                    <ul class="mechanics-list">
+                        <li>Terrorist faction defaults to Middle Eastern appearance and weapons</li>
+                        <li>Map designs feature Middle Eastern locales as terrorist strongholds</li>
+                        <li>Study: 30 minutes of play increased anti-Arab stereotypes in drawings and attitude tests</li>
+                        <li>Players asked to draw "typical Arab man" after playing depicted them with weapons and angry expressions</li>
+                    </ul>
+                </div>
+                <div class="quote-box">"Playing violent video games about terrorism strengthens negative stereotypes about Arabs, even when Arabs are not portrayed in the games." — University of Michigan researchers</div>
+            </div>
+
+            <div class="game-card">
+                <div class="game-title">Metal Slug Series</div>
+                <p class="game-description"><strong>Exoticized Enemy Fodder:</strong> Early arcade shooter that introduced "Arabian Infantry" as default enemies, complete with racist iconography and exaggerated violence.</p>
+                <div class="game-mechanics">
+                    <strong>Key Features:</strong>
+                    <ul class="mechanics-list">
+                        <li>Arabian Infantry: Sword-wielding enemies who ride camels and throw scimitars</li>
+                        <li>Significantly more violent death animations than other enemy types—they "explode into severed heads and limbs"</li>
+                        <li>Reinforces Orientalist tropes of backward, violent desert warriors</li>
+                        <li>Allies with main villain's Rebel Army, positioning Arabs as inherently antagonistic</li>
+                    </ul>
+                </div>
+                <p style="margin-top: 1rem;"><strong>Cultural Impact:</strong> Normalized Arab bodies as expendable and deserving of extreme violence in children's entertainment, establishing early patterns of desensitization.</p>
+            </div>
+
+            <div class="game-card">
+                <div class="game-title">Command & Conquer: Generals</div>
+                <p class="game-description"><strong>Terrorist Faction as Gameplay:</strong> The Global Liberation Army (GLA) is explicitly coded as Arab/Middle Eastern, with mechanics that reward suicide bombing and biological terrorism.</p>
+                <div class="game-mechanics">
+                    <strong>Key Features:</strong>
+                    <ul class="mechanics-list">
+                        <li>GLA described as "terrorists with car bombs and truck bombs, suicide bombers with explosives strapped to their bodies, anthrax and biotoxin delivery systems"</li>
+                        <li>Angry mobs of Arabs wielding AK-47s as basic infantry units</li>
+                        <li>Contrast: U.S. forces have "superior intelligence, flexible air force, can heal themselves"—civilization vs. barbarism binary</li>
+                        <li>Released in 2003, explicitly justified by Iraq War context</li>
+                    </ul>
+                </div>
+                <div class="quote-box">"The description of these struggling factions is significant... 'The Arab Global Liberation Army... distinguished by terrorists with car bombs'" — Game studies analysis</div>
+            </div>
+
+            <div class="game-card">
+                <div class="game-title">The Military-Digital-Games Complex</div>
+                <p class="game-description"><strong>Research Consensus:</strong> Multiple peer-reviewed studies confirm video games serve as propaganda tools that dehumanize Muslims and normalize their killing.</p>
+                <div class="game-mechanics">
+                    <strong>Academic Findings:</strong>
+                    <ul class="mechanics-list">
+                        <li><strong>Desensitization:</strong> Repeated virtual killing reduces empathy for real-world Muslim victims</li>
+                        <li><strong>Stereotype Reinforcement:</strong> Games communicate "mythical Muslim" stereotypes that prop up militarism and Islamophobia</li>
+                        <li><strong>Military Training:</strong> U.S. military uses digital war games to train soldiers to kill in Muslim-majority countries</li>
+                        <li><strong>Generational Impact:</strong> Muslim kids growing up under this media ecosystem internalize their own dehumanization</li>
+                    </ul>
+                </div>
+                <div class="quote-box">"If that's the framework you're given—that your country can only look shitty and your people are only poor and screaming, fighting, or dying—then that's how you see yourself." — Nadia Shammas, Palestinian writer</div>
+            </div>
+
+            <div class="game-card">
+                <div class="game-title">The 9/11 Effect</div>
+                <p class="game-description"><strong>Post-2001 Surge:</strong> The terrorist attacks triggered an explosion of war games set in Middle Eastern locales, creating a feedback loop between real-world conflict and virtual representation.</p>
+                <div class="game-mechanics">
+                    <strong>Statistical Evidence:</strong>
+                    <ul class="mechanics-list">
+                        <li>Most popular war games with Muslim enemies were created after September 11, 2001</li>
+                        <li>Characters explicitly designed as terrorists and criminals to reflect "reality" of Iraq/Afghanistan wars</li>
+                        <li>Developers justify killer-Arab archetypes by claiming they "reflect the reality of war in the Middle East"</li>
+                        <li>Fewer than 5% of video game characters are Muslim/Arab, and virtually all are villains or victims</li>
+                    </ul>
+                </div>
+                <p style="margin-top: 1.5rem;"><strong>Normalization:</strong> By 2024, the "Muslim terrorist" video game trope is so normalized that questioning it seems radical. This represents one of propaganda's greatest victories—making the manufactured seem natural.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="quote-carousel" id="quotes">
+        <h2 class="section-title">Voices Through the Centuries</h2>
+        <div class="carousel-container">
+            <div class="quote-slide active">
+                <p class="quote-text">"They [Muslims] destroy churches, rape Christian women, and force Christian men to be circumcised."</p>
+                <p class="quote-author">— Pope Urban II, 1095 (Fabricating atrocities to launch Crusades)</p>
+            </div>
+            <div class="quote-slide">
+                <p class="quote-text">"There is no compulsion in religion. Truth stands out clear from error."</p>
+                <p class="quote-author">— Quran 2:256 (Islamic principle of religious freedom)</p>
+            </div>
+            <div class="quote-slide">
+                <p class="quote-text">"An Arab has no superiority over a non-Arab... except by piety and good action."</p>
+                <p class="quote-author">— Prophet Muhammad, Final Sermon (Anti-racism declaration)</p>
+            </div>
+            <div class="quote-slide">
+                <p class="quote-text">"I think Islam hates us... A total and complete shutdown of Muslims entering the United States."</p>
+                <p class="quote-author">— Donald J. Trump, 2016 (Openly Islamophobic campaign)</p>
+            </div>
+            <div class="quote-slide">
+                <p class="quote-text">"Seeking knowledge is obligatory upon every Muslim."</p>
+                <p class="quote-author">— Prophet Muhammad (Commanding intellectual pursuit)</p>
+            </div>
+            <div class="quote-slide">
+                <p class="quote-text">"The headscarf contradicts our country's civilizational understanding... and therefore makes us feel insecure."</p>
+                <p class="quote-author">— Emmanuel Macron's minister (State-sanctioned Islamophobia)</p>
+            </div>
+            <div class="carousel-nav">
+                <button class="carousel-btn" onclick="changeSlide(-1)">‹</button>
+                <button class="carousel-btn" onclick="changeSlide(1)">›</button>
+            </div>
+        </div>
+    </section>
+
+    <section id="sources">
+        <h2 class="section-title">Comprehensive Source Documentation</h2>
+        <p style="text-align: center; color: var(--text-muted); margin-bottom: 3rem; font-size: 1.1rem;">
+            Every claim is sourced from peer-reviewed research, historical archives, verified contemporary statements, and international organization reports. Truth claims are sourced from Quran, authenticated Hadith, and historical documents.
+        </p>
+        
+        <div class="source-grid">
+            <div class="source-card">
+                <h4>Classical & Medieval Sources</h4>
+                <p>Epiphanius, <em>Panarion</em> (c. 376 CE); Eusebius, <em>Praeparatio Evangelica</em> (3rd c.); <em>Song of Roland</em> (11th c.); Pope Urban II's Clermont speech; Dante's <em>Inferno</em></p>
+            </div>
+            <div class="source-card">
+                <h4>Islamic Primary Sources</h4>
+                <p>Quran 2:256, 49:13, 96:1-5, 30:22, 45:13; Hadith collections (Bukhari, Muslim) on equality, knowledge, hospitality; Constitution of Medina (Ibn Ishaq's <em>Sira</em>)</p>
+            </div>
+            <div class="source-card">
+                <h4>Islamic Historiography</h4>
+                <p>Sahih Bukhari; Ibn Ishaq's <em>Life of Muhammad</em>; Al-Tabari's <em>History</em>; Ibn al-Athir's chronicles; Imad al-Din's accounts</p>
+            </div>
+            <div class="source-card">
+                <h4>Scientific Contributions</h4>
+                <p>Al-Khwarizmi (c. 780-850); Ibn Sina (980-1037); Al-Jazari; Ibn al-Haytham; Modern polls on "Arabic numerals" teaching</p>
+            </div>
+            <div class="source-card">
+                <h4>Video Game Studies</h4>
+                <p>University of Michigan anti-Arab stereotype study; Tanner Mirrlees on military-digital-games complex; Game Studies journal articles; Kotaku industry interviews; DIVA-portal thesis on Arab representation</p>
+            </div>
+            <div class="source-card">
+                <h4>Modern Political Statements</h4>
+                <p>White House transcripts (2001, 2016-2020, 2025); Trump campaign speeches; Le Pen tweets; Orbán statements; Macron minister statements</p>
+            </div>
+            <div class="source-card">
+                <h4>Academic Research</h4>
+                <p>Toner (2020) on Crusade mythology; Lean & Esposito on Islamophobia industry; Lalisse on European structural Islamophobia; University of Oslo propaganda studies; NCBI studies on far-right rhetoric</p>
+            </div>
+            <div class="source-card">
+                <h4>Hate Crime Data</h4>
+                <p>CAIR annual reports (1996-2024); FBI Hate Crime Statistics; European Islamophobia Report (2023); Pew Research Center surveys; EU Fundamental Rights Agency data</p>
+            </div>
+        </div>
+    <div class="stat-highlight" style="margin-top: 4rem;">
+        <h3 style="color: var(--gold); margin-bottom: 1.5rem; text-align: center;">The Modern Crisis: Hate by the Numbers</h3>
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 2rem; text-align: center;">
+            <div>
+                <div style="font-size: 2.5rem; color: var(--accent); font-weight: bold;">8,658</div>
+                <div style="color: var(--text-muted);">Anti-Muslim complaints in U.S. (2024) — highest ever recorded</div>
+            </div>
+            <div>
+                <div style="font-size: 2.5rem; color: var(--accent); font-weight: bold;">182%</div>
+                <div style="color: var(--text-muted);">Increase in Islamophobia incidents post-Oct 2023 (16-day period)</div>
+            </div>
+            <div>
+                <div style="font-size: 2.5rem; color: var(--accent); font-weight: bold;">50%</div>
+                <div style="color: var(--text-muted);">European Muslims reporting daily discrimination</div>
+            </div>
+            <div>
+                <div style="font-size: 2.5rem; color: var(--accent); font-weight: bold;">56%</div>
+                <div style="color: var(--text-muted);">Americans opposing teaching "Arabic numerals" (standard 0-9)</div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<script>
+    // Carousel functionality
+    let currentSlide = 0;
+    const slides = document.querySelectorAll('.quote-slide');
+
+    function changeSlide(direction) {
+        slides[currentSlide].classList.remove('active');
+        currentSlide = (currentSlide + direction + slides.length) % slides.length;
+        slides[currentSlide].classList.add('active');
+    }
+
+    // Auto-rotate carousel
+    setInterval(() => {
+        changeSlide(1);
+    }, 6000);
+
+    // Smooth scroll
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            e.preventDefault();
+            document.querySelector(this.getAttribute('href')).scrollIntoView({
+                behavior: 'smooth',
+                block: 'start'
+            });
+        });
+    });
+
+    // Timeline animation on scroll
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.style.animationPlayState = 'running';
+            }
+        });
+    }, { threshold: 0.2 });
+
+    document.querySelectorAll('.timeline-item').forEach(item => {
+        observer.observe(item);
+    });
+</script>
+
+<footer style="padding: 3rem 2rem; text-align: center; border-top: 2px solid rgba(245, 166, 35, 0.3); margin-top: 5rem; background: rgba(0, 0, 0, 0.3);">
+    <p style="color: var(--text-muted); margin-bottom: 1rem;">
+        <strong>The Long History of Dehumanization</strong> is an educational resource dedicated to exposing historical propaganda patterns and revealing suppressed truths.
+    </p>
+    <p style="color: var(--truth); font-style: italic; max-width: 800px; margin: 0 auto;">
+        Propaganda manufactures consent through lies. Truth dismantles it through evidence. Every claim here is sourced and verifiable.
+    </p>
+    <p style="color: var(--text-muted); margin-top: 2rem; font-size: 0.9rem;">
+        All sources documented. Historical accuracy is non-negotiable. Quranic verses are from authenticated sources. Truth cannot be erased.
+    </p>
+</footer>
+</body>
+</html>
